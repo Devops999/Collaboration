@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+<!-- <h4 align="center">Posts by {{wallName}}</h4> -->
+<div align="center">
+<img src="http://localhost:8380/Collabs_Back/getimage/{{wallName}}" alt="Profile Picture" width="300px" height="300px">
+</div>
+<h4 align="center">Posts by {{wallName}}</h4>
+<table>
+<tr data-ng-repeat="p in blogPost">
+<td><a href="#/getBlogDetail/{{p.id}}"><h3>{{p.title}}</h3></a><h6>{{p.createdBy.firstname}} {{p.createdBy.lastname}}</h6><p>{{p.description}}</p>
+ <div data-ng-mouseover="open=true" data-ng-mouseleave="open=false">
+ Comments
+ <form data-ng-how="open">
+ <textarea rows="3" cols="20" data-ng-model="$parent.comment"></textarea><br>
+ <button class="btn btn-default" data-ng-click="addComment(p)">Post</button>
+</form>
+</div>
+<ul>  <!-- <data-ng-show="showComments" > -->
+<li data-ng-repeat="comment in p.comments">
+<h6>{{comment.commentedBy.username}}</h6>
+<p>{{comment.body}}</p>
+<p>{{comment.commentOn | date:'medium'}}
+</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

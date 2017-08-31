@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div>
+
+		<input type="text" placeholder="Search Titles" ng-model="serachText">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Job Title</th>
+					<th>Posted on</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="j in jobs | filter:searchText">
+
+					<!-- calling getJobDetail function from controller to display  -->
+
+					<td><a href="" data-ng-click="getJobDetail(j.id)">{{j.jobTitle}}</a></td><td>{{j.postedOn | date:'yyyy:MM:dd'}}</td>
+					
+					
+				
+				</tr>
+			</tbody>
+
+		</table>
+		<hr>
+		<table class="table" data-ng-show="showDetail">
+			<caption>Details</caption>
+
+			<!-- <div data-ng-show="showDetail"> -->
+			<tr>
+
+				<td>Job title :</td>
+				<td>{{j.jobTitle}}</td>
+				
+				<td>Job Description :</td>
+				<td>{{j.jobDescription}}</td>>
+				
+				<td>Job Location :</td> <td>{{j.location}}</td>
+				
+				<td>Yrs of Experience :</td> <td>{{j.yrsOfExp}}</td>
+				
+
+				<td>Company :</td> <td>{{j.company}}</td>
+				
+				<!-- <td>PostedOn :</td> <td>{{j.postedOn}}</td> -->
+				
+				<td>Skills Required :</td><td> {{j.skillsRequired}}</td>
+				</tr>
+				
+		
+		</table>
+
+
+	</div>
+
+
+</body>
+</html>

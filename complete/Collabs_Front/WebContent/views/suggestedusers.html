@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body >
+	<table>
+		<thead>
+			<tr>
+				<th>Firstname</th>
+				<th>Lastname</th>
+				<th>Online Status</th>
+				<th>Friend Request</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr data-ng-repeat="user in suggestedUsers">
+				<td>{{user.username}}</td>
+				<td>{{user.lastname}}</td>
+				<td>{{user.isonline}}</td>
+				<td data-ng-if="user.online">Yes</td>
+				<td data-ng-if="!user.online">No</td>
+
+				<td><a href="" data-ng-click="friendrequest(user.username)"
+					class="btn btn-default">Send Friend Request</a></td>
+			</tr>
+
+		</tbody>
+	</table>
+</body>
+</html>

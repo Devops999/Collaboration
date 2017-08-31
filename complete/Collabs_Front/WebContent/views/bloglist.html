@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <meta charset="ISO-8859-1">
+ <title>Insert title here</title>
+ </head>
+ <body>
+ <div class="table-responsive"  ng-show="currentUser.role=='Admin'">
+ <h2>List of Blog waiting for Approval</h2>
+ <table class="table">
+ <tr><th>Recent Posts</th></tr>
+ <tr ng-repeat="blogPost in blogsWaitingForApproval | orderBy:'time':true">
+ <td><a href="#getBlogForApproval/{{blogPost.id}}">{{blogPost.title}}</a></td>
+ <td>Created By:{{blogPost.createdBy.username}}</td>
+ <td>Created On:{{blogPost.postedOn | date:'MM/dd/yyyy HH:mm'}}</td>
+ </tr>
+ 
+ </table>
+ </div>
+
+ 
+ <div class="table-responsive">
+<h3>List of Blogs</h3>
+<table class="table">
+<tr data-ng-repeat="blogPost in blogsApproved">
+<td><a href="#getBlogDetail/{{blogPost.id}}">{{blogPost.title}}</a></td><td>Created by: {{blogPost.createdBy.firstName}}</td><td>Created on: {{blogPost.postedOn | date:'yyyy:mm:dd HH:mm'}}</td>
+</tr>
+</table>
+</div>
+ 
+ </body>
+ </html> 
